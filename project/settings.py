@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'registration',
 
     # Third-party
     'debug_toolbar',
@@ -130,6 +131,7 @@ STATICFILES_DIRS = [
 # Custom user model
 
 AUTH_USER_MODEL = 'core.User'
+LOGIN_REDIRECT_URL = "/"
 
 # Debug toolbar config
 
