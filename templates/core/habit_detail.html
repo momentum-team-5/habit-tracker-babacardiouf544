@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>{{ habit.habit }}</h1>
+
+<div class="flex flex-wrap"> 
+    <ul>
+        {% for habit in habits %}
+        <li>{{ habit.habit }}
+            {% if request.user.is_authenticated and request.user == question.user %}
+            <a class="red" href="{% url 'delete_answer' pk=answer.pk %}">Delete Answer</a>
+        {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+</div>  
+{% endblock %}
