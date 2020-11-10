@@ -19,7 +19,7 @@ from django.urls import include, path
 from core import views as core_views
 
 urlpatterns = [
-    #path(' ', core_views.w, name='welcome'),
+    #path('', core_views.w, name='welcome'),
     path('', core_views.habit_list, name="habit_list"),
     path('habit/<int:pk>/', core_views.habit_detail, name="habit_detail"),
     path('habit/create/', core_views.habit_create, name="habit_create"),
@@ -27,6 +27,7 @@ urlpatterns = [
     path("habit/<int:pk>/update/", core_views.habit_update, name="habit_update"),
     path('accounts/', include('registration.backends.simple.urls')),
     #path('habits/<int:habit_pk>/create_record/', core_views.create_record, name="create_record"),
+    #path('habits/<int:pk>/delete_record/', core_views.delete_record, name="delete_record"),
     path('admin/', admin.site.urls),
 ]
 

@@ -9,7 +9,7 @@ from core.forms import HabitForm #RecordForm
 #list many Models
 
 def habit_list(request):
-    habits = Habit.objects.all() 
+    habits = request.user.habits.all() 
     
     return render(request, "core/habit_list.html", {"habits": habits})
 
@@ -33,7 +33,7 @@ def habit_create(request):
             habit = form.save(commit=False)
             habit.user = request.user
             habit.save()
-            return redirect("habit", pk=habit.pk)
+            return redirect("habit_list")
         
     return render(request, "core/habit_create.html", {"form": form})
 
@@ -49,7 +49,7 @@ def habit_update(request, pk):
         form = HabitForm(instance=habit, data=request.POST)
         if form.is_valid():
             habit = form.save()
-            return redirect("habit", pk=habit.pk)
+            return redirect("habit_list")
     
     return render(request, "core/habit_update.html", {"habit": habit, "form": form})
 
@@ -61,7 +61,7 @@ def habit_delete(request, pk):
 
     if request.method == "POST":
         habit.delete()
-        return redirect("habit-list")
+        return redirect("habit_list")
 
     return render(request, "core/habit_delete.html", {"habit": habit}) 
 

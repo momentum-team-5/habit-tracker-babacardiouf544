@@ -8,9 +8,11 @@
     <title>Habit Tracker</title>
 </head>
 <body>
+    <!-- show active user -->
+    <p class="user"> active user: {{ user.username }}</p> 
     <header>
         <nav>
-            <a href="{% url 'habit_list' %}">Home</a>
+            <!-- <a href="{% url 'habit_list' %}">Home</a> -->
             {% if user.is_authenticated %}
             <a href="/accounts/logout/">Logout</a>
             {% else %}
