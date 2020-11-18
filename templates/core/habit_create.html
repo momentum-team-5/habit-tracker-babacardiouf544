@@ -1,12 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
-
-<form method="POST">
+<h2><center>Create a Habit</center></h2>
+<div>
+  <form method="POST">
     {% csrf_token %}
     {{ form.as_p }}
-  <p><input type="submit" value="Create New Habit"></p>
-  
-</form>
+  <p><input type="submit" value="Create New Habit"></p> 
+ 
+  </form>
+</div>
 
 {% endblock %}

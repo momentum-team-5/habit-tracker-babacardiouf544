@@ -12,10 +12,10 @@
         
         <p id="habit_info"> 
         {% if request.user.is_authenticated and request.user == habit.user %}
-        <p class="habit_name">{{ habit.name }}</p>
-        <pre class="habit_target"> {{ habit.daily_target }}</pre>
-        <a href="{% url 'habit_update' pk=habit.pk %}">Edit Habit</a><br>  
-        <a href="{% url 'habit_delete' pk=habit.pk %}">Delete Habit</a><br> 
+        <p class="habit_name">{{ habit.name }} {{ habit.daily_target }}  {{ habit.noun }}</p>
+        <a href="{% url 'habit_update' pk=habit.pk %}">Edit/Update Habit</a><br>  
+        <a href="{% url 'habit_delete' pk=habit.pk %}">Delete Habit</a><br>
+        <a href="{% url 'record_create' habit_pk=habit.pk %}">Create a Record</a><br>
         {% endif %}
         </p>
     </div>

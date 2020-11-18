@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h3> Do you want to Delete your Record</h3>
+<form method="POST">
+  {% csrf_token %}
+  <input type="submit" value="Delete your Record">
+
+
+</form>
+
+{% endblock %}

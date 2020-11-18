@@ -9,11 +9,11 @@
 </head>
 <body>
     <!-- show active user -->
-    <p class="user"> active user: {{ user.username }}</p> 
+    <p class="user"> Welcome: {{ user.username }}</p> 
     <header>
-        <nav>
-            <!-- <a href="{% url 'habit_list' %}">Home</a> -->
+        <nav>                       
             {% if user.is_authenticated %}
+            <a href="{% url 'habit_list' %}">Home</a>
             <a href="/accounts/logout/">Logout</a>
             {% else %}
                 <a href="/accounts/login/">Login</a>

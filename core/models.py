@@ -6,17 +6,28 @@ class User(AbstractUser):
 
 class Habit(models.Model):
     name = models.CharField(max_length=250)
-    #daily_target = models.FloatField()
+    user = models.ForeignKey(to=User, on_delete=models.CASCADE, related_name='habits')
     daily_target = models.IntegerField(blank=True, null=True)
     #verb = models.CharField(max_length = 20)
-    #noun = models.CharField(max_length = 20)
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='habits')
+    noun = models.CharField(max_length = 20)
+   
+
+    
+  
+    
 
 
 class Record(models.Model):
     date_completed = models.DateField()
-    habit = models.ForeignKey(Habit, on_delete=models.CASCADE, related_name="records")
-    text = models.TextField(blank=True)
+    habit = models.ForeignKey(to=Habit, on_delete=models.CASCADE, related_name="records")
+    number = models.IntegerField()
+    
+    
+    class Meta:
+        unique_together = [ 
+            "habit",
+            "date_completed",
+        ]
     
 
 
