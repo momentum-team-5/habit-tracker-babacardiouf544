@@ -19,6 +19,7 @@ def habit_detail(request, pk):
     records = habit.records.all()    
 
     return render(request, "core/habit_detail.html", {"records": records, "habit": habit})
+
 #create
 @login_required
 def habit_create(request):
@@ -63,21 +64,6 @@ def habit_delete(request, pk):
     return render(request, "core/habit_delete.html", {"habit": habit}) 
 
 
-
-# #create a record list
-# @login_required
-# def record_update(request, record_pk):
-#     record = get_object_or_404(Record.objects.filter(habit__user=request.user), pk=record_pk)
-#     if request.method == "GET":
-#         form = RecordForm(instance=record)
-#     else:
-#         form = RecordForm(data=request.POST)
-#         if form.is_valid():
-#             record = record.save()
-#             return redirect("record_detail", pk=record.pk)
-#     return render(request, "core/record_update.html", {"record": record, "form": form})
-
-
 # #create a record
 @login_required
 def record_create(request, habit_pk):
@@ -91,17 +77,18 @@ def record_create(request, habit_pk):
             record = form.save(commit=False)
             record.habit = habit
             record.save()
-            return redirect("habit_detail", pk=habit.pk)
+            return redirect("habit_detail", pk = habit.pk)
     return render(request, "core/record_create.html", {"form": form})
 
 # #delete a record
-
 # @login_required
 # def record_delete(request, record_pk):
 #     record = get_object_or_404(Record.objects.filter(habit__user=request.user), pk=record_pk)
-#     record.delete()
+#     if request.method == "POST":
+#         record.delete()
 
 #     return redirect(to="habit_detail", pk = record.habit )
+
 
 
 

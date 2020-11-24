@@ -1,10 +1,12 @@
 {% extends "base.html" %}
 {%block content %}
-<h2>Create a New Record</h2>
+<h2><center>Create a New Record!</h2>
+<h4 class="habit_name">{{ habit.name }} {{ habit.daily_target }}  {{ habit.noun }}</h4>
 <form method="POST">
     {% csrf_token %}
     {{ form.as_p}}
     <input type="submit" value="Save Record">
+   
 
 </form>
 {% endblock %}

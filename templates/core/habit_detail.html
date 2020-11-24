@@ -1,12 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
-<h1>Your Habit</h1>
-
+<h2><center>Your Habit Details</h2>
+<h4 class="habit_name">{{ habit.name }} {{ habit.daily_target }}  {{ habit.noun }}</h4>
 <div class="flex flex-wrap"> 
+
     <ul>
         {% for record in records %}
-        <li>{{ record.date_completed }} {{ record.number }} </li>
-            
+        <li>{{ record.date_completed }}, {{ record.number }} </li>
+        
            
         
         {% endfor %}

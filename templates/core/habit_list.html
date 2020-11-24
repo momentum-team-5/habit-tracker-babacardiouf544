@@ -15,6 +15,7 @@
         <p class="habit_name">{{ habit.name }} {{ habit.daily_target }}  {{ habit.noun }}</p>
         <a href="{% url 'habit_update' pk=habit.pk %}">Edit/Update Habit</a><br>  
         <a href="{% url 'habit_delete' pk=habit.pk %}">Delete Habit</a><br>
+        <a href="{% url 'habit_detail' pk=habit.pk %}">Habit detail</a><br>        
         <a href="{% url 'record_create' habit_pk=habit.pk %}">Create a Record</a><br>
         {% endif %}
         </p>

@@ -25,11 +25,12 @@ urlpatterns = [
     path('habit/<int:pk>/delete/', core_views.habit_delete, name="habit_delete"),
     path("habit/<int:pk>/update/", core_views.habit_update, name="habit_update"),
     path('accounts/', include('registration.backends.simple.urls')),
-    path('habits/<int:habit_pk>/create_record/', core_views.record_create, name="record_create"),
+    path('habit/<int:habit_pk>/create_record/', core_views.record_create, name="record_create"),
     #path('records/<int:habit_pk>/create_update/', core_views.record_update, name='record_update'),
-    #path('record/<int:pk/delete>', core_views.record_delete, name='record_delete'),
+    #path('record/<int:pk>/delete/', core_views.record_delete, name='record_delete'),
     path('admin/', admin.site.urls),
-
+    path("api-auth/", include("rest_framework.urls")),
+    path("api/", include("api.urls")),
 ]
 
 if settings.DEBUG:

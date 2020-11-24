@@ -2,6 +2,7 @@
 
 {% block content %}
 <h2><center>Update your Record</center></h2>
+<p class="habit_name">{{ habit.name }} {{ habit.daily_target }}  {{ habit.noun }}</p>
 <form method="POST">
     {% csrf_token %}
     {{ form.as_p }}
